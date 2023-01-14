@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard API</title>
+</head>
+
+<body>
+  <h1>Clipboard API</h1>
+
+  <textarea id="editor" cols="30" rows="10"></textarea>
+
+  <br>
+
+  <button id="copy">Copy</button>
+  <button id="paste">Paste</button>
+  <button id="clear">Clear</button>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat varius efficitur. Mauris vestibulum dolor quis diam consectetur, at venenatis erat pretium. Ut vel dolor in enim interdum luctus. Curabitur at pellentesque nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed odio libero, convallis vel faucibus ut, mollis id enim. Curabitur blandit vitae lacus in rhoncus. Pellentesque blandit massa eget eros semper faucibus. Mauris in mi ut ex eleifend efficitur. Nam non pharetra elit, sed auctor mi. Donec facilisis posuere felis, in porta felis ornare tempus. Proin cursus, urna in consequat maximus, mauris arcu placerat dolor, at ultricies velit turpis at nulla.
+  </p>
+
+  <script>
+    document.querySelector('#copy').addEventListener('click', async (event) => {
+      const text = document.getSelection().toString();
+      navigator.clipboard.writeText(text);
+    });
+
+    document.querySelector('#paste').addEventListener('click', async (event) => {
+      document.querySelector("#editor").value += await navigator.clipboard.readText();
+    });
+
+    document.querySelector('#clear').addEventListener('click', (event) => {
+      document.querySelector("#editor").value = '';
+    });
+  </script>
+</body>
+
+</html>
