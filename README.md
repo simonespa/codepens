@@ -1,6 +1,6 @@
 # Codepens
 
-Collection of codepen-like mini projects for web development.
+Collection of codepens.
 
 ## References
 
