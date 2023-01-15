@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File API</title>
+  <style>
+    .output {
+      overflow: scroll;
+      margin: 1rem 0;
+      border-style: solid;
+      height: 200px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>File API</h1>
+
+  <p>
+    This example allows you to read the content of a file and display it in page.
+  </p>
+
+  <input type="file" />
+  <div class="output"></div>
+
+  <script>
+    const fileInput = document.querySelector("input[type=file]");
+    const output = document.querySelector('.output');
+
+    fileInput.addEventListener("change", () => {
+      const [file] = fileInput.files;
+      if (file) {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          output.innerText = reader.result;
+        });
+        reader.readAsText(file);
+      }
+    })
+  </script>
+</body>
+
+</html>

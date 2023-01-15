@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File System Access</title>
+</head>
+
+<body>
+  <h1>File System Access</h1>
+
+  <input id="file" type="button" value="Load file">
+
+  <script>
+    const pickerOpts = {
+    };
+
+    async function getTheFile() {
+      // open file picker
+      const [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+
+      // get file contents
+      const fileData = await fileHandle.getFile();
+    }
+
+    document.querySelector('#file').addEventListener('click', (event) => {
+      getTheFile()
+    });
+  </script>
+</body>
+
+</html>
