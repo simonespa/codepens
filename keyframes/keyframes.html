@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="keyframes.css">
   <title>Keyframes & Animation</title>
 </head>
+
 <body>
-  <div class="box"></div>
+  <fieldset>
+    <legend>Select an animation style</legend>
+
+    <div>
+      <input type="radio" name="animation" id="none" value="none" checked>
+      <label for="none">None</label>
+    </div>
+
+    <div>
+      <input type="radio" name="animation" id="morph" value="morph">
+      <label for="morph">Morph</label>
+    </div>
+
+    <div>
+      <input type="radio" name="animation" id="move" value="move">
+      <label for="move">Move</label>
+    </div>
+
+    <div>
+      <input type="radio" name="animation" id="both" value="both">
+      <label for="both">Both</label>
+    </div>
+  </fieldset>
+
+  <div id="box" class="box"></div>
+
+  <script>
+    const fieldset = document.querySelector('fieldset');
+    fieldset.addEventListener('change', (event) => {
+      const box = document.getElementById('box');
+
+      switch (event.target.value) {
+        case 'none':
+          box.classList = 'box';
+          break;
+        case 'morph':
+          box.classList = 'box animation-morph';
+          break;
+        case 'move':
+          box.classList = 'box animation-move';
+          break;
+        case 'both':
+          box.classList = 'box animation-both';
+          break;
+      }
+    })
+  </script>
 </body>
+
 </html>

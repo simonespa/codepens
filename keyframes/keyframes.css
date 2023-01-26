@@ -1,7 +1,24 @@
 body {
+  color: white;
   background: #0F2027;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+fieldset {
+  margin: 3rem;
+}
+
+.animation-move: {
+  animation-name: move;
+}
+
+.animation-morph: {
+  animation-name: move;
+}
+
+.animation-both: {
+  animation-name: move, morph;
 }
 
 .box {
@@ -9,47 +26,34 @@ body {
   width: 200px;
   height: 200px;
   position: relative;
-  animation-name: myanimation;
   animation-duration: 4s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
   animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-direction: alternate;
 }
 
-/* @keyframes myanimation {
-  0% {
-    background-color: white;
-    left: 0px;
-    top: 0px;
-    border-radius: 0 0 0 0;
-  }
-  25% {
-    background-color: red;
-    left: 300px;
-    top: 0px;
-    border-radius: 50% 0 0 0;
-  }
-  50% {
-    background-color: green;
-    left: 300px;
-    top: 300px;
-    border-radius: 50% 50% 0 0;
-  }
-  75% {
-    background-color: blue;
-    left: 0px;
-    top: 300px;
-    border-radius: 50% 50% 50% 0;
-  }
-  100% {
-    background-color: white;
-    left: 0px;
-    top: 0x;
-    border-radius: 50% 50% 50% 50%;
-  }
-} */
+.animation-morph {
+  animation-name: morph;
+}
 
-@keyframes myanimation {
+.animation-move {
+  animation-name: move;
+}
+
+.animation-both {
+  animation-name: morph, move;
+}
+
+@keyframes move {
+  0%    {top: 0px; left: 0px}
+  25%   {top: 0px; left: 300px;}
+  50%   {top: 300px; left: 300px;}
+  75%   {top: 300px; left: 0px;}
+  100%  {top: 0px; left: 0px;}
+}
+
+@keyframes morph {
   0% {
     background-color: white;
     border-radius: 0 0 0 0;
