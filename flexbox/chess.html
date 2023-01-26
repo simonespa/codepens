@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .row {
+      width: 100%;
+      display: flex;
+    }
+
+    .cell {
+      width: 2%;
+      height: 2%;
+      border-style: solid;
+      padding: 3% 3% 3% 3%;
+      margin: 0.2px;
+      cursor: pointer;
+      transition: background-color 0.25s;
+    }
+
+    .cell:hover:not(.selected) {
+      background-color:cadetblue;
+    }
+
+    .cell:hover {
+      background-color:blue;
+    }
+
+    .selected {
+      background-color:aquamarine;
+      cursor:grab;
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <div class="row">
+      <div id="1" class="cell"></div>
+      <div id="2" class="cell"></div>
+      <div id="3" class="cell"></div>
+      <div id="4" class="cell"></div>
+    </div>
+    <div class="row">
+      <div id="5" class="cell"></div>
+      <div id="6" class="cell"></div>
+      <div id="7" class="cell"></div>
+      <div id="8" class="cell"></div>
+    </div>
+    <div class="row">
+      <div id="9" class="cell"></div>
+      <div id="10" class="cell"></div>
+      <div id="11" class="cell"></div>
+      <div id="12" class="cell"></div>
+    </div>
+    <div class="row">
+      <div id="13" class="cell"></div>
+      <div id="14" class="cell"></div>
+      <div id="15" class="cell"></div>
+      <div id="16" class="cell"></div>
+    </div>
+  </div>
+
+  <script>
+    const cells = document.querySelectorAll('.cell');
+    for (const cell of cells) {
+      cell.addEventListener('click', (event) => {
+        event.target.classList.toggle('selected');
+      })
+    }
+  </script>
+</body>
+</html>
